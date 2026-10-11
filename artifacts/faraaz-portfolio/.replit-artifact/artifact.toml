@@ -1,0 +1,28 @@
+kind = "web"
+previewPath = "/"
+title = "Faraaz Abdul Khader — Portfolio"
+description = "A personal portfolio for IT system administrator and network support professional Faraaz Abdul Khader, presenting his experience, skills, education, and contact details for recruiters and GitHub visitors."
+version = "1.0.0"
+id = "artifacts/faraaz-portfolio"
+router = "path"
+
+[[services]]
+name = "web"
+paths = [ "/" ]
+localPort = 22805
+
+[services.development]
+run = "pnpm --filter @workspace/faraaz-portfolio run dev"
+
+[services.production]
+build = [ "pnpm", "--filter", "@workspace/faraaz-portfolio", "run", "build" ]
+serve = "static"
+publicDir = "artifacts/faraaz-portfolio/dist/public"
+
+[[services.production.rewrites]]
+from = "/*"
+to = "/index.html"
+
+[services.env]
+PORT = "22805"
+BASE_PATH = "/"
