@@ -1,0 +1,1 @@
+- [Portfolio distribution](portfolio-purpose.md) — this resume site is intended to add value to the user's GitHub profile.
